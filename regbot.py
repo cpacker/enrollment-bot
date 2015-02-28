@@ -2,6 +2,13 @@
 import mechanize
 import cookielib
 
+''' 
+Disclaimer:
+This program is intended to be used for education purposes only
+I do not condone the use of this script on actual university services
+!!! Use at your own risk !!!
+'''
+
 # QUARTER = 'SP15' # quarter by shorthand
 # REGISTRATION_LEVEL = 'UN' # default, other options GR (grad), PH (pharm)
 SECTION_IDS = ['SECTION_ID_NUMBER','839547','839480','839480']
