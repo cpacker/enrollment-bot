@@ -160,7 +160,6 @@ for s_id in section_ids:
         br.select_form(nr=0)
         br.submit()
 
-
 if ERROR_FLAG == SUCCESS:
     print 'Completed successfully.'
 elif ERROR_FLAG == AUTH_ERROR:
