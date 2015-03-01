@@ -24,6 +24,7 @@ SECTION_IDS = ['123456','789101'] # change these to the classes you want to add
 # Use this if you want to mail yourself a report email at the end
 # Useful if using unix 'at'
 # TODO
+EMAIL_STATUS = False # change to true if you would like an email update
 
 
 # ------------------------------------- #
