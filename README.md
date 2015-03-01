@@ -9,7 +9,8 @@ _Note: Tested on Python 2.7.6 only, Python 3 support coming shortly_
 - Python modules *mechanize* and *cookielib*. Install them with:
 ```
 pip install mechanize
-``` and
+``` 
+and
 ```
 pip install cookielib
 ```
