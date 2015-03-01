@@ -46,5 +46,5 @@ A copy of the terminal output will be saved to `log.txt` in the project director
 Distributed under the MIT license.
 
 ## Disclaimer
-For educational purposes only: I do not condone the use of this script on actual university services
-*Use at your own risk!*
+- For educational purposes only: I do not condone the use of this script on actual university services
+- *Use at your own risk!*
