@@ -20,7 +20,7 @@ pip install cookielib
 ## Usage and Installation
 1. Download or clone the project
 2. Navigate to the project directory
-3. Modify `PID`, `PASS` and `SECTION_IDS` to be your PID, password and a list of valid section IDs from WebReg
+3. Modify `PID`, `PASS` and `SECTION_IDS` in `regbot.py` to be your PID, password and a list of valid section IDs from WebReg
 ```python
 # User settings
 PID = 'A12345678' # change this to your PID
@@ -44,3 +44,7 @@ A copy of the terminal output will be saved to `log.txt` in the project director
 ## License
 
 Distributed under the MIT license.
+
+## Disclaimer
+For educational purposes only: I do not condone the use of this script on actual university services
+*Use at your own risk!*
