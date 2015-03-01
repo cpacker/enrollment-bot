@@ -2,8 +2,23 @@
 
 A scripting tool to automatically enroll on UCSD WebReg.
 
+_Note: Tested on Python 2.7.6 only, Python 3 support coming shortly_
+
+## Requirements
+- Python 2.x (get it [here](https://www.python.org/downloads/))
+- Python modules *mechanize* and *cookielib*. Install them with:
+```
+pip install mechanize
+``` and
+```
+pip install cookielib
+```
+You may have to use ```sudo pip install```
+
+
 ## Usage and Installation
-TODO
+
+
 
 ## Contributing
 
