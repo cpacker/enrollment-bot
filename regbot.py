@@ -30,7 +30,7 @@ SECTION_IDS = ['123456','789101'] # change these to the classes you want to add
 #           Setup Environment           #
 # ------------------------------------- #
 
-# Error codes
+# Error code constants
 SUCCESS      = 0
 AUTH_ERROR   = 1
 SELECT_ERROR = 2
@@ -81,6 +81,7 @@ login_response_text = br.response().read()
 # Raise error if credentials are incorrect
 if 'Login failed' in login_response_text:
     print 'ERROR: Could not login with given credentials'
+    ERROR_FLAG = AUTH_ERROR
 
 # Since we do not have javascript enabled, we must click continue to proceed
 br.select_form(nr=0)
@@ -102,6 +103,8 @@ br.submit()
 # TODO: Raise error on enrollment time select fail
 select_period_response_text = br.response().read()
 # print select_period_response_text
+if select_period_response_text:
+    ERROR_FLAG = SELECT_ERROR
 
 
 # ------------------------------------- #
@@ -124,6 +127,7 @@ for s_id in section_ids:
     # Case 0: The section ID does not correspond to a correct class
     if 'Request Unsuccessful' in add_response_text:
         print 'ERROR: Could not add section ID ' + s_id
+        ERROR_FLAG = ENROLL_ERROR
         # Form nr=0 is the 'Return to WebReg Enrollment Page'
         print 'Returning to WebReg enrollment page'
         br.select_form(nr=0)
@@ -142,15 +146,25 @@ for s_id in section_ids:
         # Case 0: We exceed maximum units
         if 'Request Unsuccessful' in confirm_response_text:
             print 'ERROR: Could not add section ' + s_id
+            ERROR_FLAG = ENROLL_ERROR
         # Case 1: We successfully add the class
         elif 'Request Successful' in confirm_response_text: 
             print 'Successfully added section ' + s_id
         # Case 2: (?) Did not land on a "Request Successfull" page
         else:
             print 'ERROR: Did not get success message after add'
+            ERROR_FLAG = ENROLL_ERROR
         # Form nr=0 is the 'Return to WebReg Enrollment Page'
         print 'Returning to WebReg enrollment page'
         br.select_form(nr=0)
         br.submit()
 
-print 'Done.'
+
+if ERROR_FLAG == SUCCESS:
+    print 'Completed successfully.'
+elif ERROR_FLAG == AUTH_ERROR:
+    print 'An error occured during authentication. Make sure your PID and password are correctly setup.'
+elif ERROR_FLAG == SELECT_ERROR:
+    print 'An error occured while trying to select an enrollment time.'
+elif ERROR_FLAG == ENROLL_ERROR:
+    print 'An error occured while trying to add a class. Make sure your section IDs are correct.'
