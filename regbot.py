@@ -4,19 +4,39 @@ import cookielib
 
 ''' 
 Disclaimer:
-This program is intended to be used for education purposes only
+For education purposes only
 I do not condone the use of this script on actual university services
 !!! Use at your own risk !!!
 '''
 
+# ------------------------------------- #
+#               Settings                #
+# ------------------------------------- #
+
+# User settings
+PID = 'yourpid' # change this to your PID
+PASS = 'yourpassword' # change this to your SSO password
+SECTION_IDS = ['123456','789101'] # change these to the classes you want to add
 # QUARTER = 'SP15' # quarter by shorthand
 # REGISTRATION_LEVEL = 'UN' # default, other options GR (grad), PH (pharm)
-SECTION_IDS = ['SECTION_ID_NUMBER','839547','839480','839480']
+
+# Mailer settings
+# Use this if you want to mail yourself a report email at the end
+# Useful if using unix 'at'
+# TODO
 
 
 # ------------------------------------- #
 #           Setup Environment           #
 # ------------------------------------- #
+
+# Error codes
+SUCCESS      = 0
+AUTH_ERROR   = 1
+SELECT_ERROR = 2
+ENROLL_ERROR = 3
+# Error flag used to report status at completion
+ERROR_FLAG   = SUCCESS
 
 # Browser
 br = mechanize.Browser()
@@ -52,8 +72,8 @@ r = br.open('https://act.ucsd.edu/cgi-bin/tritonlink.pl/8/students/academic/clas
 
 # Submit SSO authentication
 br.select_form(nr=0)
-br.form['urn:mace:ucsd.edu:sso:username'] = raw_input("Enter your PID: ")
-br.form['urn:mace:ucsd.edu:sso:password'] = raw_input("Enter your password: ")
+br.form['urn:mace:ucsd.edu:sso:username'] = PID
+br.form['urn:mace:ucsd.edu:sso:password'] = PASS
 # Attempt to log in with credentials
 br.submit()
 login_response_text = br.response().read()
@@ -72,13 +92,16 @@ br.submit()
 # ------------------------------------- #
 
 print 'Attempting to select an enrollment period'
-# TODO: Raise error on enrollment fail
 # Select an enrollment period
 br.select_form(nr=0)
 # By not changing form defaults we automatically choose the current quarter
 # br.form['reg_term'] = QUARTER
 # br.form['reg_lvl'] = REGISTRATION_LEVEL
 br.submit()
+
+# TODO: Raise error on enrollment time select fail
+select_period_response_text = br.response().read()
+# print select_period_response_text
 
 
 # ------------------------------------- #
