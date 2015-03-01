@@ -1,6 +1,5 @@
 # Enrollment Bot
 
-## Synopsis
 A scripting tool to automatically enroll on UCSD WebReg.
 
 ## Usage and Installation
