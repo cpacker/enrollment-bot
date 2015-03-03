@@ -2,11 +2,11 @@
 #            User Settings              #
 # ===================================== #
 
-#====|    Authentication Settings    |====#
+# Authentication Settings
 PID = 'yourpid' # change this to your PID
 PASS = 'yourpass' # change this to your SSO password
 
-#====|    Enrollment Options    |====#
+# Enrollment Options
 SECTION_IDS = ['123456','789101'] # change these to the section IDs you want to add
 
 
