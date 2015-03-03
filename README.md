@@ -32,7 +32,7 @@ SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you
 4. `chmod +x enroll` to make the script executable
 5. `./enroll` to launch the script
 
-A copy of the terminal output will be saved to `log.txt` in the project directory
+A copy of the terminal output will be saved to `log.log` in the project directory
 
 
 ## Contributing
