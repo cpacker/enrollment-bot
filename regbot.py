@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import mechanize
 import cookielib
+import time
+from datetime import datetime
 import settings
 
 ''' 
@@ -15,6 +17,9 @@ I do not condone the use of this script on actual university services
 #          Program Settings             #
 #          * Do not modify *            #
 # ===================================== #
+
+# Number of times to try enrolling after failure before exiting program
+ATTEMPT = 5
 
 # Error code constants
 SUCCESS      = 0
@@ -187,7 +192,9 @@ def enroll():
     return ERROR_FLAG
 
 
-if __name__ == '__main__':
+# Driver function that accounts for potential exceptions from network errors
+# Returns SUCCESS on success and an error code otherwise
+def run_driver():
     try:
         # Run the main script
         status = enroll()
@@ -196,8 +203,30 @@ if __name__ == '__main__':
             print_error(status)
         else:
             print 'Completed successfully.'
+        return status
 
     except Exception as e:
         # If a network / browser error occured, catch it and report the code
         print e
         print 'An unexpected error occured while trying to run the program.'
+        return -1
+
+
+# Entry point of script
+# Calls the driver function until success ATTEMPT number of times 
+if __name__ == '__main__':
+    attempts = 0
+    while (attempts < ATTEMPT):
+        print '[ Attempt ' + str(attempts+1) + ': ' + str(datetime.now()) + ' ]'
+        status = run_driver()
+        if (status == SUCCESS):
+            break
+        else:
+            attempts += 1
+            time.sleep(1) # Delay a second before trying again
+
+    # TODO mail status at end
+    # if (status == SUCCESS):
+    #     mail(SUCCESS)
+    # else:
+    #     mail(FAILURE)
