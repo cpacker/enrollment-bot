@@ -20,12 +20,14 @@ pip install cookielib
 ## Usage and Installation
 1. Download or clone the project
 2. Navigate to the project directory
-3. Modify `PID`, `PASS` and `SECTION_IDS` in `regbot.py` to be your PID, password and a list of valid section IDs from WebReg
+3. Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
 ```python
-# User settings
+# Authentication Settings
 PID = 'A12345678' # change this to your PID
-PASS = 'supersecret' # change this to your SSO password
-SECTION_IDS = ['843721','939283','422304'] # change these to the classes you want to add
+PASS = 'ilovepugs5' # change this to your SSO password
+
+# Enrollment Options
+SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you want to add
 ```
 4. `chmod +x enroll` to make the script executable
 5. `./enroll` to launch the script
