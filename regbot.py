@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import mechanize
 import cookielib
+import settings
 
 ''' 
 Disclaimer:
@@ -9,23 +10,11 @@ I do not condone the use of this script on actual university services
 !!! Use at your own risk !!!
 '''
 
+
 # ===================================== #
-#               Settings                #
+#          Program Settings             #
+#          * Do not modify *            #
 # ===================================== #
-
-# User settings
-PID = 'yourpid' # change this to your PID
-PASS = 'yourpass!!' # change this to your SSO password
-SECTION_IDS = ['123456','789101'] # change these to the classes you want to add
-# QUARTER = 'SP15' # quarter by shorthand
-# REGISTRATION_LEVEL = 'UN' # default, other options GR (grad), PH (pharm)
-
-# Mailer settings
-# Use this if you want to mail yourself a report email at the end
-# Useful if using unix 'at'
-# TODO
-EMAIL_STATUS = False # change to true if you would like an email update
-
 
 # Error code constants
 SUCCESS      = 0
@@ -87,7 +76,7 @@ def enroll():
 
     # Browser options
     br.set_handle_equiv(True)
-    br.set_handle_gzip(True)
+    # br.set_handle_gzip(True)
     br.set_handle_redirect(True)
     br.set_handle_referer(True)
     br.set_handle_robots(False)
@@ -108,8 +97,8 @@ def enroll():
 
     # Submit SSO authentication
     br.select_form(nr=0)
-    br.form['urn:mace:ucsd.edu:sso:username'] = PID
-    br.form['urn:mace:ucsd.edu:sso:password'] = PASS
+    br.form['urn:mace:ucsd.edu:sso:username'] = settings.PID
+    br.form['urn:mace:ucsd.edu:sso:password'] = settings.PASS
     # Attempt to log in with credentials
     br.submit()
     login_response_text = br.response().read()
@@ -147,7 +136,7 @@ def enroll():
     #         WebReg Enrollment Page        #
     # ------------------------------------- #
 
-    section_ids = SECTION_IDS
+    section_ids = settings.SECTION_IDS
 
     # Go through all the section IDs and attempt to add or waitlist the classes
     for s_id in section_ids:
