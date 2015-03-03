@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import mechanize
 import cookielib
+import logging
 import time
 from datetime import datetime
 import settings
@@ -18,6 +19,16 @@ I do not condone the use of this script on actual university services
 #          * Do not modify *            #
 # ===================================== #
 
+# Setup the logger
+logging.basicConfig(filename='log.log',level=logging.DEBUG)
+# Setup console output
+formatter = logging.Formatter('%(levelname)-8s %(message)s')
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+
+
 # Number of times to try enrolling after failure before exiting program
 ATTEMPT = 5
 
@@ -30,11 +41,11 @@ ENROLL_ERROR = 3
 
 def print_error(flag):
     if flag == AUTH_ERROR:
-        print 'An error occured during authentication. Make sure your PID and password are correctly setup.'
+        logging.error('An error occured during authentication. Make sure your PID and password are correctly setup.')
     elif flag == SELECT_ERROR:
-        print 'An error occured while trying to select an enrollment time.'
+        logging.error('An error occured while trying to select an enrollment time.')
     elif flag == ENROLL_ERROR:
-        print 'An error occured while trying to add a class. Make sure your section IDs are correct.'
+        logging.error('An error occured while trying to add a class. Make sure your section IDs are correct.')
 
 
 # =================================================================#
@@ -110,7 +121,7 @@ def enroll():
 
     # Raise error if credentials are incorrect
     if 'Login failed' in login_response_text:
-        print 'ERROR: Could not login with given credentials'
+        logging.error('Could not login with given credentials')
         return AUTH_ERROR
 
     # Since we do not have javascript enabled, we must click continue to proceed
@@ -122,7 +133,7 @@ def enroll():
     #      Enrollment Selection Page        #
     # ------------------------------------- #
 
-    print 'Attempting to select an enrollment period'
+    logging.debug('Attempting to select an enrollment period')
     # Select an enrollment period
     br.select_form(nr=0)
     # By not changing form defaults we automatically choose the current quarter
@@ -149,17 +160,17 @@ def enroll():
         br.select_form(nr=1)
         # Input the section ID and submit
         br.form['secid'] = s_id
-        print 'Attempting to add section ID: ' + s_id
+        logging.debug('Attempting to add section ID: ' + s_id)
         br.submit()
         add_response_text = br.response().read()
 
         #=== Handle Response Page ===#
         # Case 0: The section ID does not correspond to a correct class
         if 'Request Unsuccessful' in add_response_text:
-            print 'ERROR: Could not add section ID ' + s_id
+            logging.error('Could not add section ID ' + s_id)
             ERROR_FLAG = ENROLL_ERROR
             # Form nr=0 is the 'Return to WebReg Enrollment Page'
-            print 'Returning to WebReg enrollment page'
+            logging.debug('Returning to WebReg enrollment page')
             br.select_form(nr=0)
             br.submit()
         # Case 1: The class exists
@@ -175,17 +186,17 @@ def enroll():
             #=== Handle Response Page ===#
             # Case 0: We exceed maximum units
             if 'Request Unsuccessful' in confirm_response_text:
-                print 'ERROR: Could not add section ' + s_id
+                logging.error('Could not add section ' + s_id)
                 ERROR_FLAG = ENROLL_ERROR
             # Case 1: We successfully add the class
             elif 'Request Successful' in confirm_response_text: 
-                print 'Successfully added section ' + s_id
+                logging.info('Successfully added section ' + s_id)
             # Case 2: (?) Did not land on a "Request Successfull" page
             else:
-                print 'ERROR: Did not get success message after add'
+                logging.error('Did not get success message after add')
                 ERROR_FLAG = ENROLL_ERROR
             # Form nr=0 is the 'Return to WebReg Enrollment Page'
-            print 'Returning to WebReg enrollment page'
+            logging.debug('Returning to WebReg enrollment page')
             br.select_form(nr=0)
             br.submit()
 
@@ -202,13 +213,13 @@ def run_driver():
         if (status != SUCCESS):
             print_error(status)
         else:
-            print 'Completed successfully.'
+            logging.debug('Successfully enrolled on attempt ' + str(attempts))
         return status
 
     except Exception as e:
         # If a network / browser error occured, catch it and report the code
-        print e
-        print 'An unexpected error occured while trying to run the program.'
+        logging.debug(e)
+        logging.error('An unexpected error occured while trying to run the program.')
         return -1
 
 
@@ -217,7 +228,7 @@ def run_driver():
 if __name__ == '__main__':
     attempts = 0
     while (attempts < ATTEMPT):
-        print '[ Attempt ' + str(attempts+1) + ': ' + str(datetime.now()) + ' ]'
+        logging.debug('[ Attempt ' + str(attempts+1) + ': ' + str(datetime.now()) + ' ]')
         status = run_driver()
         if (status == SUCCESS):
             break
@@ -226,7 +237,9 @@ if __name__ == '__main__':
             time.sleep(1) # Delay a second before trying again
 
     # TODO mail status at end
-    # if (status == SUCCESS):
-    #     mail(SUCCESS)
-    # else:
-    #     mail(FAILURE)
+    if (status == SUCCESS):
+        # mail(SUCCESS)
+        logging.info('Completed successfully.')
+    else:
+        # mail(FAILURE)
+        logging.info('Program exited with errors.')

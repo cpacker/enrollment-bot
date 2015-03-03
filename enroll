@@ -1,3 +1,2 @@
 #!/bin/bash
-python regbot.py 2>&1 | tee log.txt
-echo '[ Logged output in log.txt ]'
+python regbot.py
