@@ -55,4 +55,3 @@ Distributed under the MIT license.
 - Python 3 support
 - Instructions on how to run script using `at`
 - Built-in SMTP mailer to send status update on completion / failure
-- Refactor code to exit cleanly on errors
