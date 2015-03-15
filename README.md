@@ -59,8 +59,5 @@ Distributed under the MIT license.
 ## Disclaimer
 - For educational purposes only: I do not condone the use of this script on actual university services
 - *Use at your own risk!*
-
-## TODO
-- Python 3 support
 - Instructions on how to run script using `at`
 - Built-in SMTP mailer to send status update on completion / failure
