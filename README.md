@@ -24,8 +24,8 @@ pip3 install cookiejar
 - Navigate to the project directory and rename the `mechanize-python3` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
 
-##### Cookielib:
-- Download the cookielib.py file [here](https://hg.python.org/cpython/raw-file/b617790557b3/Lib/cookielib.py) and move it to the project directory
+##### Cookiejar:
+- Download the cookiejar.py file [here](https://hg.python.org/cpython/raw-file/7cc7c794d1cb/Lib/http/cookiejar.py) and move it to the project directory
 
 ## Usage and Installation
 1. Download or clone the project
