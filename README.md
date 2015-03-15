@@ -6,7 +6,7 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 
 ## Requirements and Dependencies
 - Python 3.x (get it [here](https://www.python.org/downloads/))
-- Libraries `mechanize` and `cookielib`
+- Libraries `mechanize` and `cookiejar`
 
 ## Usage and Installation
 
