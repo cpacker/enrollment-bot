@@ -8,7 +8,7 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 - The OSX or Linux terminal app / BASH
 - Python 3.x (get it [here](https://www.python.org/downloads/))
 
-### If you have root access to your machine:
+#### If you have root access to your machine:
 - Python modules `mechanize` and `cookiejar`. Install them with:
 ```
 pip install mechanize
@@ -18,7 +18,7 @@ pip install cookielib
 ```
 - You may have to use `sudo pip install`
 
-### If you do not have root access, or if you'd rather supply the dependencies locally:
+#### If you do not have root access, or if you'd rather supply the dependencies locally:
 - After installing (see below), go to the mechanize and cookielib repository pages and select `Download as ZIP`
 - Move the uncompressed (unzipped) folders you just downloaded inside the project directory (`enrollment-bot/`)
 
