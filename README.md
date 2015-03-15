@@ -6,8 +6,8 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 
 ## Requirements
 - The OSX or Linux terminal app / BASH
-- Python 2.x (get it [here](https://www.python.org/downloads/))
-- Python modules `mechanize` and `cookielib`. Install them with:
+- Python 3.x (get it [here](https://www.python.org/downloads/))
+- Python modules `mechanize` and `cookiejar`. Install them with:
 ```
 pip install mechanize
 ``` 
