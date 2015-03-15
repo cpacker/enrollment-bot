@@ -2,7 +2,7 @@
 
 A scripting tool to automatically enroll on UCSD WebReg.
 
-_Note: Tested on Python 2.7.6 only, Python 3 support coming shortly_
+_Note: These instructions are for Python 3, for Python 2, check [here](https://github.com/cpacker/enrollment-bot/tree/python2)_
 
 ## Requirements
 - The OSX or Linux terminal app / BASH
