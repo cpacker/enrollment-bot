@@ -25,9 +25,7 @@ pip install cookielib
 ##### If you do not have root access, or if you'd rather supply the dependencies locally:
 ##### Mechanize:
 - Go to the [mechanize](https://github.com/jjlee/mechanize) repository page and select `Download as ZIP`
-- Move the unzipped `mechanizemaster` folder you just downloaded inside the project directory (`enrollment-bot/`)
-- Navigate to the project directory and rename the `mechanizemaster` folder to `mechanize`
-- Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
+- Move the folder `mechanize` inside the unzipped `mechanizemaster` folder you just downloaded into the project directory (`enrollment-bot/`)
 
 ##### Cookielib:
 - Download the cookielib.py file [here](https://hg.python.org/cpython/raw-file/b617790557b3/Lib/cookielib.py) and move it to the project directory
