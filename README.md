@@ -4,9 +4,9 @@ A scripting tool to automatically enroll on UCSD WebReg.
 
 _Note: These instructions are for Python 3, for Python 2, check [here](https://github.com/cpacker/enrollment-bot/tree/python2)_
 
-## Requirements
-- The OSX or Linux terminal app / BASH
+## Requirements and Dependencies
 - Python 3.x (get it [here](https://www.python.org/downloads/))
+- Libraries `mechanize` and `cookielib`
 
 #### If you have root access to your machine:
 - Python modules `mechanize` and `cookiejar`. Install them with:
