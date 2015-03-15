@@ -44,8 +44,11 @@ SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you
 ```
 
 ### How to use
-- To execute the script, simply run `python3 regbot.py` from the project directory
-
+To execute the script, simply run `python3 regbot.py` from the project directory
+If you would like to have the script execute at a certain time, you can use the Unix utility `at`. For example, the following will run enrollment-bot at 9PM today, or tomorrow if it is already past 9PM:
+```bash
+echo "python3 regbot.py" | at 2100
+```
 A copy of the terminal output will be saved to `log.log` in the project directory
 
 
@@ -64,5 +67,4 @@ Distributed under the MIT license.
 ## Disclaimer
 - For educational purposes only: I do not condone the use of this script on actual university services
 - *Use at your own risk!*
-- Instructions on how to run script using `at`
 - Built-in SMTP mailer to send status update on completion / failure
