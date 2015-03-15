@@ -7,20 +7,21 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 ## Requirements and Dependencies
 - Python 3.x (get it [here](https://www.python.org/downloads/))
 - Libraries `mechanize` and `cookielib`
+- Mechanize has not been officially updated for Python 3
 
 #### If you have root access to your machine:
-- Python modules `mechanize` and `cookiejar`. Install them with:
+- Install `cookiejar` with:
 ```
-pip install mechanize
-pip install cookielib
+pip3 install cookiejar
 ```
 - You may have to use `sudo pip install`
+- Mechanize has not been officially updated for Python 3, so install [adevore's working fork](https://github.com/adevore/mechanize/tree/python3) locally as shown below:
 
 #### If you do not have root access, or if you'd rather supply the dependencies locally:
 ##### Mechanize:
-- After installing (see below), go to the [mechanize](https://github.com/jjlee/mechanize) repository page and select `Download as ZIP`
-- Move the unzipped `mechanizemaster` folder you just downloaded inside the project directory (`enrollment-bot/`)
-- Navigate to the project directory and rename the `mechanizemaster` folder to `mechanize`
+- After installing (see below), go to the [mechanize](https://github.com/adevore/mechanize/tree/python3) repository page and select `Download as ZIP`
+- Move the unzipped `mechanize-python3` folder you just downloaded inside the project directory (`enrollment-bot/`)
+- Navigate to the project directory and rename the `mechanize-python3` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
 
 ##### Cookielib:
