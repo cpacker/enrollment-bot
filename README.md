@@ -73,4 +73,6 @@ Distributed under the MIT license.
 ## Disclaimer
 - For educational purposes only: I do not condone the use of this script on actual university services
 - *Use at your own risk!*
+
+## To-do
 - ~~Built-in SMTP mailer to send status update on completion / failure~~ ieng6 automatically does this when you use `at`
