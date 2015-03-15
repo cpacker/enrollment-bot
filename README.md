@@ -11,7 +11,7 @@ _Note: For systems with Python 2 only, for Python 3 go [here](https://github.com
 ## Usage and Installation
 
 ### How to install
-1. Download or clone the project
+1. Download or clone the python2 branch of the project (`git clone -b python2 https://github.com/cpacker/enrollment-bot.git`)
 2. Install the project dependencies (see below)
 
 ##### If you have root access to your machine:
