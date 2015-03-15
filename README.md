@@ -2,20 +2,30 @@
 
 A scripting tool to automatically enroll on UCSD WebReg.
 
-_Note: Tested on Python 2.7.6 only, Python 3 support coming shortly_
+_Note: For systems with Python 2 only, for Python 3 go [here](https://github.com/cpacker/enrollment-bot)_
+# Enrollment Bot
 
-## Requirements
-- The OSX or Linux terminal app / BASH
+## Requirements and Dependencies
 - Python 2.x (get it [here](https://www.python.org/downloads/))
+- Libraries `mechanize` and `cookielib`
+
+#### If you have root access to your machine:
 - Python modules `mechanize` and `cookielib`. Install them with:
 ```
 pip install mechanize
-``` 
-```
 pip install cookielib
 ```
 - You may have to use `sudo pip install`
 
+#### If you do not have root access, or if you'd rather supply the dependencies locally:
+##### Mechanize:
+- After installing (see below), go to the [mechanize](https://github.com/jjlee/mechanize) repository page and select `Download as ZIP`
+- Move the unzipped `mechanizemaster` folder you just downloaded inside the project directory (`enrollment-bot/`)
+- Navigate to the project directory and rename the `mechanizemaster` folder to `mechanize`
+- Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
+
+##### Cookielib:
+- Download the cookielib.py file [here](https://hg.python.org/cpython/raw-file/b617790557b3/Lib/cookielib.py) and move it to the project directory
 
 ## Usage and Installation
 1. Download or clone the project
@@ -50,8 +60,5 @@ Distributed under the MIT license.
 ## Disclaimer
 - For educational purposes only: I do not condone the use of this script on actual university services
 - *Use at your own risk!*
-
-## TODO (=> v1.0)
-- Python 3 support
 - Instructions on how to run script using `at`
 - Built-in SMTP mailer to send status update on completion / failure
