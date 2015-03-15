@@ -3,13 +3,18 @@
 A scripting tool to automatically enroll on UCSD WebReg.
 
 _Note: For systems with Python 2 only, for Python 3 go [here](https://github.com/cpacker/enrollment-bot)_
-# Enrollment Bot
 
 ## Requirements and Dependencies
 - Python 2.x (get it [here](https://www.python.org/downloads/))
 - Libraries `mechanize` and `cookielib`
 
-#### If you have root access to your machine:
+## Usage and Installation
+
+### How to install
+1. Download or clone the project
+2. Install the project dependencies (see below)
+
+##### If you have root access to your machine:
 - Python modules `mechanize` and `cookielib`. Install them with:
 ```
 pip install mechanize
@@ -17,9 +22,9 @@ pip install cookielib
 ```
 - You may have to use `sudo pip install`
 
-#### If you do not have root access, or if you'd rather supply the dependencies locally:
+##### If you do not have root access, or if you'd rather supply the dependencies locally:
 ##### Mechanize:
-- After installing (see below), go to the [mechanize](https://github.com/jjlee/mechanize) repository page and select `Download as ZIP`
+- Go to the [mechanize](https://github.com/jjlee/mechanize) repository page and select `Download as ZIP`
 - Move the unzipped `mechanizemaster` folder you just downloaded inside the project directory (`enrollment-bot/`)
 - Navigate to the project directory and rename the `mechanizemaster` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
@@ -27,10 +32,8 @@ pip install cookielib
 ##### Cookielib:
 - Download the cookielib.py file [here](https://hg.python.org/cpython/raw-file/b617790557b3/Lib/cookielib.py) and move it to the project directory
 
-## Usage and Installation
-1. Download or clone the project
-2. Navigate to the project directory
-3. Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
+### How to configure
+Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
 ```python
 # Authentication Settings
 PID = 'A12345678' # change this to your PID
@@ -39,11 +42,23 @@ PASS = 'ilovepugs5' # change this to your SSO password
 # Enrollment Options
 SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you want to add
 ```
-4. `chmod +x enroll` to make the script executable
-5. `./enroll` to launch the script
 
-A copy of the terminal output will be saved to `log.log` in the project directory
+### How to use
+- To execute the script directly, simply run `python regbot.py` from the project directory
+- If you would like to have the script execute at a certain time, you can use the Unix utility `at`. 
+- For example, the following will run enrollment-bot at 9PM today, or tomorrow if it is already past 9PM:
+```bash
+# Run this from the project directory!
+echo "python regbot.py" | at 2100
+```
+- For more information on how to use `at`, visit [this](https://kb.iu.edu/d/aewo) website
 
+_Your computer needs to be on at the given time for `at` to run enrollment-bot. Instead, use `at` on a server you know will be running at when your enrollment time starts._
+
+Running on ieng6.ucsd.edu:
+- ieng6 has Python 2 installed by default
+- ieng6 will automatically send you the output of your job via email, so check your email to see the terminal output
+- A copy of the terminal/debug output will also be saved to `log.log` in the project directory
 
 ## Contributing
 
@@ -60,5 +75,6 @@ Distributed under the MIT license.
 ## Disclaimer
 - For educational purposes only: I do not condone the use of this script on actual university services
 - *Use at your own risk!*
-- Instructions on how to run script using `at`
-- Built-in SMTP mailer to send status update on completion / failure
+
+## To-do
+- ~~Built-in SMTP mailer to send status update on completion / failure~~ ieng6 automatically does this when you use `at`
