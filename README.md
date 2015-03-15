@@ -8,18 +8,13 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 - Python 3.x (get it [here](https://www.python.org/downloads/))
 - Libraries `mechanize` and `cookielib`
 
-
-
-##### Cookiejar:
-- Download the cookiejar.py file [here](https://hg.python.org/cpython/raw-file/7cc7c794d1cb/Lib/http/cookiejar.py) and move it to the project directory
-
 ## Usage and Installation
 
-### Step 1: Install
+### How to install
 1. Download or clone the project
 2. Install the project dependencies
 
-#### If you have root access to your machine:
+##### If you have root access to your machine:
 - Install `cookiejar` with:
 ```
 pip3 install cookiejar
@@ -27,14 +22,17 @@ pip3 install cookiejar
 - You may have to use `sudo pip install`
 - Mechanize has not been officially updated for Python 3, so install [adevore's working fork](https://github.com/adevore/mechanize/tree/python3) locally as shown below:
 
-#### If you do not have root access, or if you'd rather supply the dependencies locally:
+##### If you do not have root access, or if you'd rather supply the dependencies locally:
 ##### Mechanize:
 - After installing (see below), go to the [mechanize](https://github.com/adevore/mechanize/tree/python3) repository page and select `Download as ZIP`
 - Move the unzipped `mechanize-python3` folder you just downloaded inside the project directory (`enrollment-bot/`)
 - Navigate to the project directory and rename the `mechanize-python3` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
 
-### Step 2: Configure
+##### Cookiejar:
+- Download the cookiejar.py file [here](https://hg.python.org/cpython/raw-file/7cc7c794d1cb/Lib/http/cookiejar.py) and move it to the project directory
+
+### How to configure
 Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
 ```python
 # Authentication Settings
@@ -45,7 +43,7 @@ PASS = 'ilovepugs5' # change this to your SSO password
 SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you want to add
 ```
 
-### Step 3: Run the script
+### How to use
 - To execute the script, simply run `python3 regbot.py` from the project directory
 
 A copy of the terminal output will be saved to `log.log` in the project directory
