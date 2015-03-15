@@ -55,7 +55,7 @@ echo "python3 regbot.py" | at 2100
 
 _Your computer needs to be on at the given time for `at` to run enrollment-bot. Instead, use `at` on a server you know will be running at when your enrollment time starts._
 
-Running on ieng6:
+Running on ieng6.ucsd.edu:
 - ieng6 has Python 2 installed by default, so use the installation instructions given [here](https://github.com/cpacker/enrollment-bot/tree/python2)
 - ieng6 will automatically send you the output of your job via email, so check your email to see the terminal output
 - A copy of the terminal/debug output will also be saved to `log.log` in the project directory
