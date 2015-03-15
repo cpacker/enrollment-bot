@@ -1,7 +1,7 @@
 # ===================================== #
 #            User Settings              #
 # ===================================== #
-
+# MOVE TO COMMAND LINE ARGUMENTS
 # Authentication Settings
 PID = 'yourpid' # change this to your PID
 PASS = 'yourpass' # change this to your SSO password

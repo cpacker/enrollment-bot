@@ -1,12 +1,11 @@
-#!/usr/bin/python
-import mechanize
-import cookielib
+import mechanizepython3
+import cookiejar
 import logging
 import time
 from datetime import datetime
 import settings
 
-''' 
+'''
 Disclaimer:
 For education purposes only
 I do not condone the use of this script on actual university services
@@ -222,6 +221,12 @@ def run_driver():
         logging.error('An unexpected error occured while trying to run the program.')
         return -1
 
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv, "", ["password"])
+    except getopt.GetoptError:
+        usage()
+        sys.exit(2)
 
 # Entry point of script
 # Calls the driver function until success ATTEMPT number of times 
