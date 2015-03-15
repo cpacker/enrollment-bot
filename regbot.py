@@ -1,4 +1,4 @@
-import mechanizepython3
+import mechanize
 import cookiejar
 import logging
 import time
