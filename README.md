@@ -44,15 +44,18 @@ SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you
 ```
 
 ### How to use
-To execute the script, simply run `python3 regbot.py` from the project directory
-
-If you would like to have the script execute at a certain time, you can use the Unix utility `at`. 
-
-For example, the following will run enrollment-bot at 9PM today, or tomorrow if it is already past 9PM:
+- To execute the script directly, simply run `python3 regbot.py` from the project directory
+- If you would like to have the script execute at a certain time, you can use the Unix utility `at`. 
+- For example, the following will run enrollment-bot at 9PM today, or tomorrow if it is already past 9PM:
 ```bash
+# Run this from the project directory!
 echo "python3 regbot.py" | at 2100
 ```
-A copy of the terminal output will be saved to `log.log` in the project directory
+- For more information on how to use `at`, visit [this](https://kb.iu.edu/d/aewo) website
+
+Notes:
+- ieng6 will automatically send you the output of your job via email 
+- A copy of debug output will be saved to `log.log` in the project directory
 
 
 ## Contributing
