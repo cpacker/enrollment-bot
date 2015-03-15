@@ -12,8 +12,6 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 - Python modules `mechanize` and `cookiejar`. Install them with:
 ```
 pip install mechanize
-``` 
-```
 pip install cookielib
 ```
 - You may have to use `sudo pip install`
