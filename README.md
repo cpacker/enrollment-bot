@@ -12,7 +12,7 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 
 ### How to install
 1. Download or clone the project
-2. Install the project dependencies
+2. Install the project dependencies (see below)
 
 ##### If you have root access to your machine:
 - Install `cookiejar` with:
@@ -24,7 +24,7 @@ pip3 install cookiejar
 
 ##### If you do not have root access, or if you'd rather supply the dependencies locally:
 ##### Mechanize:
-- After installing (see below), go to the [mechanize](https://github.com/adevore/mechanize/tree/python3) repository page and select `Download as ZIP`
+- Go to the [mechanize](https://github.com/adevore/mechanize/tree/python3) repository page and select `Download as ZIP`
 - Move the unzipped `mechanize-python3` folder you just downloaded inside the project directory (`enrollment-bot/`)
 - Navigate to the project directory and rename the `mechanize-python3` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
