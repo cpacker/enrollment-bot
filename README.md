@@ -7,7 +7,17 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 ## Requirements and Dependencies
 - Python 3.x (get it [here](https://www.python.org/downloads/))
 - Libraries `mechanize` and `cookielib`
-- Mechanize has not been officially updated for Python 3
+
+
+
+##### Cookiejar:
+- Download the cookiejar.py file [here](https://hg.python.org/cpython/raw-file/7cc7c794d1cb/Lib/http/cookiejar.py) and move it to the project directory
+
+## Usage and Installation
+
+### Step 1: Install
+1. Download or clone the project
+2. Install the project dependencies
 
 #### If you have root access to your machine:
 - Install `cookiejar` with:
@@ -24,13 +34,8 @@ pip3 install cookiejar
 - Navigate to the project directory and rename the `mechanize-python3` folder to `mechanize`
 - Create an empty `__init__.py` file inside the `mechanize` folder (eg `touch mechanize/__init__.py`)
 
-##### Cookiejar:
-- Download the cookiejar.py file [here](https://hg.python.org/cpython/raw-file/7cc7c794d1cb/Lib/http/cookiejar.py) and move it to the project directory
-
-## Usage and Installation
-1. Download or clone the project
-2. Navigate to the project directory
-3. Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
+### Step 2: Configure
+Modify `PID`, `PASS` and `SECTION_IDS` in `settings.py` to be your PID, password and a list of valid section IDs from WebReg
 ```python
 # Authentication Settings
 PID = 'A12345678' # change this to your PID
@@ -39,8 +44,9 @@ PASS = 'ilovepugs5' # change this to your SSO password
 # Enrollment Options
 SECTION_IDS = ['843721','939283','422304'] # change these to the section IDs you want to add
 ```
-4. `chmod +x enroll` to make the script executable
-5. `./enroll` to launch the script
+
+### Step 3: Run the script
+- To execute the script, simply run `python3 regbot.py` from the project directory
 
 A copy of the terminal output will be saved to `log.log` in the project directory
 
