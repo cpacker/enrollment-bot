@@ -19,7 +19,7 @@ _Note: These instructions are for Python 3, for Python 2, check [here](https://g
 ```
 pip3 install cookiejar
 ```
-- You may have to use `sudo pip install`
+- You may have to use `sudo pip3 install`
 - Mechanize has not been officially updated for Python 3, so install [adevore's working fork](https://github.com/adevore/mechanize/tree/python3) locally as shown below:
 
 ##### If you do not have root access, or if you'd rather supply the dependencies locally:
