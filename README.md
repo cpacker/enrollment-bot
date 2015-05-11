@@ -61,6 +61,7 @@ Running on ieng6.ucsd.edu:
 
 ## Contributing
 *Feel free to help out by picking up one of the tasks from the to-do list at the bottom*
+
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
