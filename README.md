@@ -76,4 +76,6 @@ Distributed under the MIT license.
 - *Use at your own risk!*
 
 ## To-do
-- ~~Built-in SMTP mailer to send status update on completion / failure~~ ieng6 automatically does this when you use `at`
+- ~~Built-in SMTP mailer to send status update on completion / failure~~ running with `at` will send you mail to your ieng6 account
+- Clean error handling code
+- Move authentication to command-line args from settings file
